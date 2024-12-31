@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Styling umum */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    background-color: #252525;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 1.8rem;
+}
+
+.button-back .btn-back {
+    display: inline-block;
+    background-color: #dfa34a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.button-back .btn-back:hover {
+    background-color: #a06403;
+    color: #fff;
+}
+
+/* Container utama */
+.container {
+    padding: 20px;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+/* Tabel data */
+.tabel-data {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    /* Tambahkan ini */
+}
+
+.header-tabel {
+    background-color: #282828;
+    color: #fff;
+}
+
+.kolom-tabel th {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.kolom-tabel td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.kolom-tabel tr:hover {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* Tombol dalam tabel */
+.btn-view,
+.btn-detail,
+.btn-approve,
+.btn-reject {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-view {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-view:hover {
+    background-color: #218838;
+}
+
+.btn-detail {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-detail:hover {
+    background-color: #138496;
+}
+
+.btn-approve {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.btn-approve:hover {
+    background-color: #e0a800;
+}
+
+.btn-reject {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-reject:hover {
+    background-color: #c82333;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a {
+    color: #313131;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover,
+.pagination a.active {
+    background-color: #2c2c2c;
+    color: #fff;
+    border-color: #2b2b2b;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #2d2d2d;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #242424;
+}

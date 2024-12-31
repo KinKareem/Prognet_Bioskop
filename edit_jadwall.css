@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Umum */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #e6e6e6;
+    width: auto;
+    height: auto;
+}
+
+.edit-jadwal-header {
+    background-color: #4CAF50;
+    color: white;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+
+.edit-jadwal-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.edit-jadwal-form {
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.edit-jadwal-form .edit-jadwal-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.edit-jadwal-form .edit-jadwal-input,
+.edit-jadwal-form .edit-jadwal-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.edit-jadwal-form .edit-jadwal-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.edit-jadwal-form .edit-jadwal-button:hover {
+    background-color: #45a049;
+}
+
+.edit-jadwal-form .edit-jadwal-button:active {
+    background-color: #3e8e41;
+}
+
+/* CSS untuk tombol Tambah Jadwal */
+.back {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.back .btn-back {
+    display: inline-block;
+    background-color: #4CAF50;
+    /* Warna hijau */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.back .btn-back:hover {
+    background-color: #45a049;
+    /* Warna hijau lebih gelap saat hover */
+    transform: translateY(-2px);
+    /* Efek naik sedikit */
+}
+
+.back .btn-back:active {
+    background-color: #3e8e41;
+    /* Warna hijau lebih gelap saat klik */
+    transform: translateY(0);
+    /* Hilangkan efek naik */
+}

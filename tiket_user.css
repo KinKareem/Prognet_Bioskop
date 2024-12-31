@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #e6e6e6;
+    width: auto;
+    height: auto;
+}
+
+.batas-judul-anime {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    margin: 10px auto;
+    width: 50%;
+}
+
+.batas-judul-spotlight {
+    margin-top: 5px;
+    width: 195px;
+    height: 3px;
+    background-color: white;
+}
+
+/* ======================================================== */
+
+/* Gaya untuk header */
+.header_home {
+    align-items: center;
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 100px;
+    background: linear-gradient(-90deg, rgb(45, 45, 45), rgb(49, 49, 49));
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 100;
+    box-shadow: 0.1px 0.1px 10px rgb(255, 255, 255, 0.5);
+}
+
+/* Gaya untuk teks h1 */
+.header_home h1 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 600px;
+    margin-top: 20px;
+}
+
+.logo_home {
+    height: 45px;
+    width: auto;
+}
+
+.header_link {
+    display: flex;
+    align-items: center;
+}
+
+.header_link a {
+    position: relative;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 40px;
+}
+
+/* Hover effect */
+.header_link a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--hover-color, #fff);
+    /* Gunakan warna hover dari variabel */
+    transition: 0.3s;
+}
+
+.header_link a:hover::before {
+    width: 100%;
+}
+
+/* Gaya untuk tombol */
+.header_link button {
+    margin-left: 40px;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /* Transisi pada efek hover */
+    background-size: 200% 200%;
+    /* Pastikan gradien lebih besar untuk animasi */
+
+    /* Tambahkan animasi */
+}
+
+/* Efek hover */
+.header_link button:hover {
+    transition: transform 0.3s ease;
+    animation: gradient-rotation 2s linear infinite;
+    /* Smooth scale */
+}
+
+/* Animasi gradien */
+@keyframes gradient-rotation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container dropdown */
+.dropdown_container {
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown menu */
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    display: none;
+    background-color: rgba(18, 5, 56);
+    border-radius: 5px;
+    box-shadow: 0.1px 0.1px 10px rgba(255, 255, 255, 0.5);
+    z-index: 100;
+    list-style: none;
+    min-width: 250px;
+}
+
+/* Dropdown item */
+.dropdown li {
+    padding-top: 10px;
+    margin-bottom: 13px;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 20px;
+    display: block;
+    width: 70%;
+}
+
+/* Hover effect for dropdown links */
+.dropdown li a:hover {
+    color: white;
+    width: 70%;
+}
+
+/* Tampilkan dropdown on hover */
+.dropdown_container:hover .dropdown {
+    display: block;
+    width: 70%;
+}
+
+/* --------------------------------------Anime--------------------------------- */
+
+/* Gaya untuk seluruh container */
+.div_anime {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1600px;
+}
+
+/* Gaya untuk judul dan garis */
+.div_anime h2 {
+    text-align: center;
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* -------------- Jadwal ------------------- */
+.horizontal_scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ff7e5f transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.horizontal_scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal_scroll::-webkit-scrollbar-thumb {
+    background: #ff7e5f;
+    border-radius: 4px;
+}
+
+.horizontal_scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* Animasi gradien */
+@keyframes gradient-rotation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ----------------- Tabel Utama ----------------------*/
+/* Form Pencarian */
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #2f2f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #212121;
+}
+
+.search-form input[type="text"]:focus {
+    outline: none;
+    border-color: #c99224;
+}
+
+.judul-tiket {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+}
+
+.ticket-table {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 80px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Header Tabel */
+.ticket-header th {
+    background-color: #242424;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 2px solid #d07520;
+    font-weight: bold;
+}
+
+/* Baris Tabel */
+.ticket-row td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+    color: #333;
+    text-align: center;
+}
+
+/* Alternating Row Colors */
+.ticket-body tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Hover Effect */
+.ticket-row:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease;
+}
+
+.ticket-row td:nth-child(12) {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Total Harga Column (13th Column) */
+.ticket-row td:nth-child(13) {
+    color: #202020;
+    font-weight: bold;
+    text-align: right;
+}
+
+.download-btn {
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+/* Hover effect */
+.download-btn:hover {
+    transform: scale(0.9);
+    /* Memperkecil ukuran tombol saat hover */
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.pagination a {
+    border-radius: 10px;
+    padding: 17px 20px;
+    margin-left: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a.active {
+    background-color: #282828;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* --------------------Footer------------------- */
+
+.footer {
+    margin-top: 100px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin-left: 50px;
+    min-width: 250px;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-section h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.social-links img {
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}

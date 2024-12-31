@@ -1,21 +1,58 @@
 <?php
 include 'koneksi.php';
 
+// Fungsi untuk menghasilkan ID jadwal
+function generateScheduleId($conn)
+{
+    $query = "SELECT MAX(schedule_id) AS last_id FROM tb_schedule";
+    $result = $conn->query($query);
+    $row = $result->fetch_assoc();
+
+    $lastId = $row['last_id'];
+    $newId = 1;
+
+    if ($lastId) {
+        // Mengambil angka dari ID terakhir dan menambahkannya
+        $number = (int)substr($lastId, 4);
+        $newId = $number + 1;
+    }
+
+    // Menghasilkan ID baru dengan format "SCH-001"
+    return "scd" . str_pad($newId, 3, '0', STR_PAD_LEFT);
+}
+
+// Proses penyimpanan data jika form disubmit
 // Proses penyimpanan data jika form disubmit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $schedule_id = generateScheduleId($conn); // Tambahkan baris ini
     $movie_id = $_POST['movie_id'];
     $studio_id = $_POST['studio_id'];
     $tanggal = $_POST['tanggal'];
     $waktu_mulai = $_POST['waktu_mulai'];
+    $waktu_selesai = $_POST['waktu_selesai'];
     $harga_tiket = $_POST['harga_tiket'];
 
-    $sql = "INSERT INTO tb_schedule (movie_id, studio_id, tanggal, waktu_mulai, harga_tiket)
-            VALUES ('$movie_id', '$studio_id', '$tanggal', '$waktu_mulai', '$harga_tiket')";
+    // Validasi apakah ada jadwal yang sama
+    $check_sql = "SELECT * FROM tb_schedule
+                  WHERE movie_id = ? AND studio_id = ? AND tanggal = ? AND waktu_mulai = ?";
+    $check_stmt = $conn->prepare($check_sql);
+    $check_stmt->bind_param("iiss", $movie_id, $studio_id, $tanggal, $waktu_mulai);
+    $check_stmt->execute();
+    $check_result = $check_stmt->get_result();
 
-    if ($conn->query($sql) === TRUE) {
-        $success_message = "Data berhasil ditambahkan!";
+    if ($check_result->num_rows > 0) {
+        // Jika ada jadwal yang sama
+        $error_message = "Jadwal tayang untuk film ini sudah ada pada tanggal dan waktu yang sama di studio yang dipilih.";
     } else {
-        $error_message = "Error: " . $sql . "<br>" . $conn->error;
+        // Jika tidak ada jadwal yang sama, simpan data baru
+        $sql = "INSERT INTO tb_schedule (schedule_id, movie_id, studio_id, tanggal, waktu_mulai, waktu_selesai, harga_tiket)
+                VALUES ('$schedule_id', '$movie_id', '$studio_id', '$tanggal', '$waktu_mulai', '$waktu_selesai', '$harga_tiket')";
+
+        if ($conn->query($sql) === TRUE) {
+            $success_message = "Data berhasil ditambahkan!";
+        } else {
+            $error_message = "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 }
 ?>
@@ -78,7 +115,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div>
                 <label for="waktu_mulai">Waktu Mulai</label>
-                <input type="time" name="waktu_mulai" id="waktu_mulai" required>
+                <select name="waktu_mulai" id="waktu_mulai" required>
+                    <option value="">Pilih Waktu</option>
+                    <option value="12:00">12:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="19:00">19:00</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="waktu_selesai">Waktu Selesai</label>
+                <input type="time" name="waktu_selesai" id="waktu_selesai" required>
             </div>
 
             <div>

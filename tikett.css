@@ -1,0 +1,287 @@
+/* Umum */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #e6e6e6;
+    width: auto;
+    height: auto;
+}
+
+/* Gaya untuk header */
+.header_home {
+    align-items: center;
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 100px;
+    background: linear-gradient(-90deg, rgb(45, 45, 45), rgb(49, 49, 49));
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 100;
+    box-shadow: 0.1px 0.1px 10px rgb(255, 255, 255, 0.5);
+}
+
+/* Gaya untuk teks h1 */
+.header_home h1 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 600px;
+    margin-top: 20px;
+}
+
+.logo_home {
+    height: 60px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.header_link {
+    display: flex;
+    align-items: center;
+}
+
+/* ------------------ Pilih kursi ------------------- */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.legend div {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.legend span {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.available span {
+    background-color: #4caf50;
+}
+
+.booked span {
+    background-color: #f44336;
+}
+
+.selected span {
+    background-color: #2196f3;
+}
+
+.layar-bioskop {
+    height: 350px;
+    width: auto;
+    margin-left: 269px;
+    margin-bottom: 30px;
+}
+
+/* Kursi */
+.seats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.baris-kursi {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    /* Jarak antar kursi */
+}
+
+.seat {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.seat.available {
+    background-color: #4caf50;
+}
+
+.seat.booked {
+    background-color: #f44336;
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background-color: #2196f3;
+}
+
+/* Informasi Harga */
+.hitung-harga p {
+    margin-top: 20px;
+}
+
+.hitung-harga {
+    margin-top: 80px;
+    font-size: 25px;
+    color: #333;
+    font-weight: 600;
+}
+
+strong {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Tombol Konfirmasi */
+#confirm-booking {
+    margin-top: 60px;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#confirm-booking:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#confirm-booking:hover:enabled {
+    background-color: #555;
+}
+
+/* --------------------Footer------------------- */
+
+.footer {
+    margin-top: 100px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin-left: 50px;
+    min-width: 250px;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-section h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.social-links img {
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .legend {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .legend div {
+        margin-bottom: 10px;
+    }
+
+    .seats .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seat {
+        margin: 5px;
+    }
+
+    #confirm-booking {
+        font-size: 16px;
+    }
+}

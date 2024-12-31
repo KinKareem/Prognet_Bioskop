@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Studio</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="tb_adminn.css">
 </head>
 
 <body>
@@ -22,12 +22,12 @@
             <h2>Admin Menu</h2>
             <hr>
             <ul>
-                <li><a href="index.php">Data User</a></li>
-                <li><a href="tiket.php">Tiket</a></li>
+                <li><a href="tb_admin.php">Data User</a></li>
                 <li><a href="movie.php">Movie</a></li>
                 <li><a href="studio.php" class="active">Studio</a></li>
-                <li><a href="booking.php">Booking</a></li>
-                <li><a href="booking_detail.php">Booking Detail</a></li>
+                <li><a href="jadwal.php">Jadwal</a></li>
+                <li><a href="data_book.php">Booking</a></li>
+                <li><a href="Report.php">Report</a></li>
             </ul>
         </div>
 
@@ -38,9 +38,10 @@
 
             <!-- Form Search dan Filter -->
             <form method="GET" class="filter-form">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
+                <!--  atur berapa data yang ditampilkan -->
+                <div class="atur-jumlah">
                     <!-- Dropdown jumlah data -->
-                    <div>
+                    <div class="data-halaman">
                         <label for="records_per_page">Tampilkan:</label>
                         <select name="records_per_page" id="records_per_page" onchange="this.form.submit()">
                             <option value="5" <?= isset($_GET['records_per_page']) && $_GET['records_per_page'] == '5' ? 'selected' : '' ?>>5</option>
@@ -50,23 +51,23 @@
                     </div>
 
                     <!-- Input Search -->
-                    <div>
-                        <input type="text" name="search" placeholder="Cari berdasarkan nama studio" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+                    <div class="cari-data">
+                        <input type="text" name="search" placeholder="Cari nama studio" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
                         <button type="submit">Cari</button>
                     </div>
                 </div>
             </form>
 
-            <table>
-                <thead>
-                    <tr>
+            <table class="tabel">
+                <thead class="header-tabel">
+                    <tr class="kolom-tabel">
                         <th>Studio ID</th>
                         <th>Nama Studio</th>
                         <th>Kapasitas</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+
+                <tbody class="isi-data">
                     <?php
                     // Default jumlah data per halaman
                     $records_per_page = isset($_GET['records_per_page']) ? (int)$_GET['records_per_page'] : 5;
@@ -91,14 +92,10 @@
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
+                            echo "<tr class='kolom-tabel'>";
                             echo "<td>" . $row['studio_id'] . "</td>";
                             echo "<td>" . $row['nama_studio'] . "</td>";
                             echo "<td>" . $row['kapasitas'] . "</td>";
-                            echo "<td>
-                                    <a href='edit_studio.php?id=" . $row['studio_id'] . "' class='btn-edit'>Edit</a>
-                                    <a href='delete_studio.php?id=" . $row['studio_id'] . "' class='btn-delete' onclick='return confirm(\"Yakin ingin menghapus data ini?\")'>Hapus</a>
-                                  </td>";
                             echo "</tr>";
                         }
                     } else {

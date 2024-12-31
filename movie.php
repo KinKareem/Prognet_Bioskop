@@ -7,14 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Movies</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="tb_adminn.css">
+
 </head>
 
 <body>
 
     <header class="header">
-        <h1>Dashboard Admin - Movies</h1>
+        <h1>Dashboard Admin</h1>
     </header>
+
 
     <div class="wrapper">
         <!-- Sidebar -->
@@ -22,12 +24,12 @@
             <h2>Admin Menu</h2>
             <hr>
             <ul>
-                <li><a href="index.php">Data User</a></li>
-                <li><a href="tiket.php">Tiket</a></li>
-                <li><a href="movie.php" class="active">Movie</a></li>
+                <li><a href="tb_admin.php">Data User</a></li>
+                <li><a href="movie.php">Movie</a></li>
                 <li><a href="studio.php">Studio</a></li>
-                <li><a href="booking.php">Booking</a></li>
-                <li><a href="booking_detail.php">Booking Detail</a></li>
+                <li><a href="jadwal.php">Jadwal</a></li>
+                <li><a href="data_book.php">Booking</a></li>
+                <li><a href="report.php">Report</a></li>
             </ul>
         </div>
 
@@ -36,11 +38,16 @@
             <h1>Data Movies</h1>
             <hr>
 
+            <!-- tombol tambah data -->
+            <div class="tambah">
+                <a class="btn-add" href="add_movie.php">Tambah Film</a>
+            </div>
+
             <!-- Form Search dan Filter -->
             <form method="GET" class="filter-form">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <!-- Dropdown jumlah data -->
-                    <div>
+                <!--  atur berapa data yang ditampilkan -->
+                <div class="atur-jumlah">
+                    <div class="data-halaman">
                         <label for="records_per_page">Tampilkan:</label>
                         <select name="records_per_page" id="records_per_page" onchange="this.form.submit()">
                             <option value="5" <?= isset($_GET['records_per_page']) && $_GET['records_per_page'] == '5' ? 'selected' : '' ?>>5</option>
@@ -50,16 +57,17 @@
                     </div>
 
                     <!-- Input Search -->
-                    <div>
+                    <div class="cari-data">
                         <input type="text" name="search" placeholder="Cari berdasarkan judul film" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
                         <button type="submit">Cari</button>
                     </div>
                 </div>
             </form>
 
-            <table>
-                <thead>
-                    <tr>
+            <!-- Atur Tabel -->
+            <table class="tabel">
+                <thead class="header-tabel">
+                    <tr class="kolom-tabel">
                         <th>Poster</th>
                         <th>Judul</th>
                         <th>Genre</th>
@@ -68,7 +76,8 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+
+                <tbody class="isi-data">
                     <?php
                     // Default jumlah data per halaman
                     $records_per_page = isset($_GET['records_per_page']) ? (int)$_GET['records_per_page'] : 5;
@@ -95,20 +104,18 @@
                         while ($row = $result->fetch_assoc()) {
                             // Pengecekan apakah poster adalah URL eksternal
                             $poster = $row['poster'];
-
                             // Jika poster adalah URL, tampilkan langsung dari URL
                             if (filter_var($poster, FILTER_VALIDATE_URL)) {
                                 // Jika URL valid, langsung tampilkan gambar
-                                echo "<tr>";
+                                echo "<tr class='kolom-tabel'>";
                                 echo "<td><img src='" . $poster . "' alt='Poster''></td>";
                             } else {
                                 // Jika bukan URL, anggap ini adalah path lokal (misalnya, path file di server)
                                 // Konversi poster dari BLOB ke format base64 jika menggunakan file lokal
                                 $poster = 'data:image/jpeg;base64,' . base64_encode($row['poster']);
-                                echo "<tr>";
+                                echo "<tr class='kolom-tabel'>";
                                 echo "<td><img src='" . $poster . "' alt='Poster''></td>";
                             }
-
                             // Menampilkan data lainnya
                             echo "<td>" . $row['judul'] . "</td>";
                             echo "<td>" . $row['genre'] . "</td>";

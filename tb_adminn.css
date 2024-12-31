@@ -1,0 +1,326 @@
+/* Import font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+/* Wrapper */
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    background-color: #34495e;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sidebar hr {
+    border: none;
+    border-top: 2px solid #495c70;
+    margin: 15px 0;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #1abc9c;
+    color: #fff;
+}
+
+/* Container */
+.container {
+    flex: 1;
+    padding: 30px;
+}
+
+.container h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.container hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+/* Button Style */
+.btn-add {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #12bd56;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: transparent;
+    text-decoration: none;
+}
+
+.btn-add:hover {
+    background-color: #0d8a3f;
+}
+
+/* Form Search dan Filter */
+.filter-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.atur-jumlah,
+.cari-data {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.data-halaman label,
+.cari-data button {
+    font-size: 0.9rem;
+    color: #333;
+    margin-right: 10px;
+}
+
+#records_per_page {
+    padding: 8px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.cari-data input[type="text"] {
+    width: 250px;
+    height: 50px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.cari-data button {
+    width: 70px;
+    height: 50px;
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cari-data button:hover {
+    background-color: #1abc9c;
+}
+
+/* Tabel */
+.tabel {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header-tabel {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+/* Atur gambar di tabel */
+.tabel .kolom-tabel img {
+    width: 110px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+.kolom-tabel th,
+.kolom-tabel td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+.kolom-tabel tr:hover {
+    background-color: #f4f7fc;
+}
+
+.kolom-tabel td {
+    vertical-align: middle;
+}
+
+.kolom-tabel td:last-child {
+    text-align: center;
+}
+
+.btn-edit,
+.btn-delete {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+/* Tombol dalam tabel */
+.btn-view,
+.btn-detail,
+.btn-approve,
+.btn-reject {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-view {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-view:hover {
+    background-color: #218838;
+}
+
+.btn-detail {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-detail:hover {
+    background-color: #138496;
+}
+
+.btn-approve {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.btn-approve:hover {
+    background-color: #e0a800;
+}
+
+.btn-reject {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-reject:hover {
+    background-color: #c82333;
+}
+
+
+.btn-edit {
+    background-color: #3498db;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover,
+.pagination a.active {
+    background-color: #2c3e50;
+    color: #fff;
+}

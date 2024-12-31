@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #e6e6e6;
+    width: auto;
+    height: auto;
+}
+
+.batas-judul-anime {
+    width: 320px;
+    height: 3px;
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+.batas-judul-spotlight {
+    margin-top: 5px;
+    width: 195px;
+    height: 3px;
+    background-color: white;
+}
+
+/* ======================================================== */
+
+/* Gaya untuk header */
+.header_home {
+    align-items: center;
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 100px;
+    background: linear-gradient(-90deg, rgb(45, 45, 45), rgb(49, 49, 49));
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 100;
+    box-shadow: 0.1px 0.1px 10px rgb(255, 255, 255, 0.5);
+}
+
+/* Gaya untuk teks h1 */
+.header_home h1 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 600px;
+    margin-top: 20px;
+}
+
+.logo_home {
+    height: 45px;
+    width: auto;
+}
+
+.header_link {
+    display: flex;
+    align-items: center;
+}
+
+.header_link a {
+    position: relative;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 40px;
+}
+
+/* Hover effect */
+.header_link a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--hover-color, #fff);
+    /* Gunakan warna hover dari variabel */
+    transition: 0.3s;
+}
+
+.header_link a:hover::before {
+    width: 100%;
+}
+
+/* Gaya untuk tombol */
+.header_link button {
+    margin-left: 40px;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /* Transisi pada efek hover */
+    background-size: 200% 200%;
+    /* Pastikan gradien lebih besar untuk animasi */
+
+    /* Tambahkan animasi */
+}
+
+/* Efek hover */
+.header_link button:hover {
+    transition: transform 0.3s ease;
+    animation: gradient-rotation 2s linear infinite;
+    /* Smooth scale */
+}
+
+/* Animasi gradien */
+@keyframes gradient-rotation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container dropdown */
+.dropdown_container {
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown menu */
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    display: none;
+    background-color: rgba(18, 5, 56);
+    border-radius: 5px;
+    box-shadow: 0.1px 0.1px 10px rgba(255, 255, 255, 0.5);
+    z-index: 100;
+    list-style: none;
+    min-width: 250px;
+}
+
+/* Dropdown item */
+.dropdown li {
+    padding-top: 10px;
+    margin-bottom: 13px;
+}
+
+.dropdown li a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 20px;
+    display: block;
+    width: 70%;
+}
+
+/* Hover effect for dropdown links */
+.dropdown li a:hover {
+    color: white;
+    width: 70%;
+}
+
+/* Tampilkan dropdown on hover */
+.dropdown_container:hover .dropdown {
+    display: block;
+    width: 70%;
+}
+
+/* --------------------------------------Anime--------------------------------- */
+
+/* Gaya untuk seluruh container */
+.div_anime {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1600px;
+}
+
+/* Gaya untuk judul dan garis */
+.div_anime h2 {
+    text-align: center;
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.batas-judul-anime {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    margin: 10px auto;
+    width: 50%;
+}
+
+/* -------------- Jadwal ------------------- */
+.horizontal_scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ff7e5f transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.horizontal_scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal_scroll::-webkit-scrollbar-thumb {
+    background: #ff7e5f;
+    border-radius: 4px;
+}
+
+.horizontal_scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Gaya untuk setiap card */
+.isi_anime {
+    display: flex;
+    gap: 15px;
+    height: auto;
+    width: 200px;
+
+}
+
+.anime {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex: 0 0 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+.anime:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Gaya untuk gambar di dalam card */
+.anime img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* Gaya untuk teks di dalam card */
+.anime h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #444;
+}
+
+.anime p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+/* Gaya untuk link di dalam card */
+.anime a {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border-radius: 5px;
+    background-size: 200% 200%;
+    transition: transform 0.3s ease;
+
+}
+
+/* Efek hover pada link */
+.anime a:hover {
+    transition: transform 0.3s ease;
+    animation: gradient-rotation 2s linear infinite;
+}
+
+/* Animasi gradien */
+@keyframes gradient-rotation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* -------------------- Trailer ------------------- */
+
+.div_game {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 60px;
+    width: 100%;
+    height: 700px;
+    background: linear-gradient(-90deg, rgb(45, 45, 45), rgb(49, 49, 49));
+}
+
+.div_game h2 {
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-bottom: 70px;
+    color: white;
+    font-size: 35px;
+}
+
+.batas-judul-spotlight {
+    width: 310px;
+    height: 2px;
+    background-color: #fff;
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* Menyusun elemen anak secara horizontal di tengah */
+}
+
+.game-wrapper {
+    display: flex;
+    max-width: 1550px;
+    height: max-content;
+    margin: 0 auto 35px;
+    /* Memastikan elemen berada di tengah dengan margin otomatis */
+    padding: 0 10px;
+    overflow-x: hidden;
+}
+
+.game-list {
+    margin-bottom: 20px;
+    margin-left: 0;
+    /* Menghilangkan margin kiri untuk posisi tengah yang lebih konsisten */
+    text-align: center;
+    /* Menyusun konten game-list agar rata tengah jika diperlukan */
+}
+
+.game-list .game-link:hover .game-button {
+    color: white;
+    background: #ffffff;
+}
+
+.game-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background-color: #ffffff;
+}
+
+.game-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* Posisi tombol sebelah kiri dan kanan */
+.swiper-button-prev {
+    color: #333
+        /* Posisi kiri */
+}
+
+.swiper-button-next {
+    right: 10px;
+    /* Posisi kanan */
+}
+
+
+.video-card {
+    text-align: center;
+    color: #fff;
+}
+
+.thumbnail-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.play-icon {
+    position: absolute;
+    top: 0;
+    margin-top: 140px;
+    margin-left: -30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.video-title {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.trailer-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.trailer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.trailer-content {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+}
+
+#trailer-video {
+    width: 100%;
+    height: 550px;
+    border: none;
+}
+
+.close-button {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* --------------------Footer------------------- */
+
+.footer {
+    margin-top: 100px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin-left: 50px;
+    min-width: 250px;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-section h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.social-links img {
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}

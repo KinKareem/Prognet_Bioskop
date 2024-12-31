@@ -1,0 +1,18 @@
+/* Button Style */
+.btn-add {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #12bd56;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: transparent;
+    text-decoration: none;
+}
+
+.btn-add:hover {
+    background-color: #0d8a3f;
+}

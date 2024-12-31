@@ -1,4 +1,10 @@
-<?php include 'koneksi.php'; ?>
+<?php
+// Menampilkan notifikasi jika ada
+if (isset($_GET['message'])) {
+    echo "<div class='alert alert-success'>" . htmlspecialchars($_GET['message']) . "</div>";
+}
+include 'koneksi.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Jadwal Tayang</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="tb_adminn.css">
 </head>
 
 <body>
@@ -22,13 +28,12 @@
             <h2>Admin Menu</h2>
             <hr>
             <ul>
-                <li><a href="index.php">Data User</a></li>
-                <li><a href="tiket.php">Tiket</a></li>
+                <li><a href="tb_admin.php">Data User</a></li>
                 <li><a href="movie.php">Movie</a></li>
                 <li><a href="studio.php">Studio</a></li>
                 <li><a href="jadwal.php">Jadwal</a></li>
-                <li><a href="booking.php">Booking</a></li>
-                <li><a href="schedule.php">Jadwal Tayang</a></li>
+                <li><a href="data_book.php">Booking</a></li>
+                <li><a href="report.php">Report</a></li>
             </ul>
         </div>
 
@@ -37,15 +42,16 @@
             <h1>Jadwal Tayang</h1>
             <hr>
             <!-- tombol tambah data -->
-            <div>
-                <a class="tambah" href="add_jadwal.php">Tambah Jadwal</a>
+            <div class="tambah">
+                <a class="btn-add" href="add_jadwal.php">Tambah Jadwal</a>
             </div>
 
             <!-- Form Search dan Filter -->
             <form method="GET" class="filter-form">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
+                <!--  atur berapa data yang ditampilkan -->
+                <div class="atur-jumlah">
                     <!-- Dropdown jumlah data -->
-                    <div>
+                    <div class="data-halaman">
                         <label for="records_per_page">Tampilkan:</label>
                         <select name="records_per_page" id="records_per_page" onchange="this.form.submit()">
                             <option value="5" <?= isset($_GET['records_per_page']) && $_GET['records_per_page'] == '5' ? 'selected' : '' ?>>5</option>
@@ -55,16 +61,16 @@
                     </div>
 
                     <!-- Input Search -->
-                    <div>
-                        <input type="text" name="search" placeholder="Cari berdasarkan Judul Film" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+                    <div class="cari-data">
+                        <input type="text" name="search" placeholder="Cari Judul Film" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
                         <button type="submit">Cari</button>
                     </div>
                 </div>
             </form>
 
-            <table>
-                <thead>
-                    <tr>
+            <table class="tabel">
+                <thead class="header-tabel">
+                    <tr class="kolom-tabel">
                         <th>Schedule ID</th>
                         <th>Nama Film</th>
                         <th>Nama Studio</th>
@@ -74,7 +80,8 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+
+                <tbody class="isi-data">
                     <?php
                     // Default jumlah data per halaman
                     $records_per_page = isset($_GET['records_per_page']) ? (int)$_GET['records_per_page'] : 5;
@@ -112,7 +119,7 @@
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
+                            echo "<tr class='kolom-tabel'>";
                             echo "<td>" . $row['schedule_id'] . "</td>";
                             echo "<td>" . $row['nama_film'] . "</td>";
                             echo "<td>" . $row['nama_studio'] . "</td>";
@@ -120,9 +127,8 @@
                             echo "<td>" . date('H.i', strtotime($row['waktu_mulai'])) . "</td>"; // Format waktu menjadi Jam.Menit
                             echo "<td>" . $row['harga_tiket'] . "</td>";
                             echo "<td>
-                                    <a href='edit_schedule.php?id=" . $row['schedule_id'] . "' class='btn-edit'>Edit</a>
-                                    <a href='delete_schedule.php?id=" . $row['schedule_id'] . "' class='btn-delete' onclick='return confirm(\"Yakin ingin menghapus data ini?\")'>Hapus</a>
-                                  </td>";
+                                    <a href='edit_schedule.php?schedule_id=" . urlencode($row['schedule_id']) . "' class='btn-edit'>Edit</a>
+                                </td>";
                             echo "</tr>";
                         }
                     } else {
@@ -141,6 +147,7 @@
                 }
                 ?>
             </div>
+
         </div>
     </div>
 

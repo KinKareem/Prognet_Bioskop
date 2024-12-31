@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+.seat {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.available {
+    background-color: green;
+    color: white;
+}
+
+.booked {
+    background-color: red;
+    color: white;
+    pointer-events: none;
+}
+
+.selected {
+    background-color: orange;
+}
+
+#checkout {
+    margin-top: 20px;
+}
